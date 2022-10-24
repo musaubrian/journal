@@ -1,6 +1,6 @@
 <template>
     <div class="homepage">
-        <button @click="fetchEntries">get data</button>
+        <!-- <button @click="fetchEntries">get data</button> -->
         <div 
         class="content-container" 
         v-for="entry in entries"
@@ -38,6 +38,9 @@ export default {
                 this.err = error
             }
         }
+    },
+    mounted: function() {
+        this.fetchEntries()
     }
 }
 </script>
