@@ -51,7 +51,7 @@ export default {
     align-items: center;
 }
 form {
-    width: 80%;
+    width: 90%;
 }
 .inputs {
     width: 100%;
