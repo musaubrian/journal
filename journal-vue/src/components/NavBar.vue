@@ -43,7 +43,7 @@ div {
     flex-direction: row;
     flex-wrap: nowrap;
     list-style: none;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 li {
