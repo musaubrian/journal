@@ -56,6 +56,7 @@ export default {
 h2 {
     font-size: 1.6rem;
     text-decoration: underline;
+    text-transform: capitalize;
 }
 p {
     font-size: 1.1rem;
