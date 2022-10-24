@@ -1,27 +1,43 @@
 <template>
     <div class="form-container">
-        <form action="">
+        <form @submit.prevent="uploadData()">
             <h1>What's on your mind</h1>
 
-            <input type="text" placeholder="Title" class="inputs" v-model="name">
-            <input type="text" placeholder="@madeupname" class="inputs" v-model="author">
-            <textarea rows="5" placeholder="Your thoughts" v-model="thoughts"></textarea>
+            <input type="text" placeholder="Title" class="inputs" v-model="title" required>
+            <input type="text" placeholder="@madeupname" class="inputs" v-model="author" required>
+            <textarea rows="5" placeholder="Your thoughts" v-model="thoughts" required></textarea>
 
             <div class="button-container">
-                <button>Upload</button>
+                <button type="submit">Upload</button>
             </div>
         </form>
+
+        <h2>{{title}}</h2>
+        <h2>{{author}}</h2>
+        <h2>{{thoughts}}</h2>
     </div>
 
 </template>
 
 <script>
+import { supabase } from '../supabase';
+
 export default {
     data () {
         return {
-            name: '',
+            title: '',
             author: '',
             thoughts: ''
+        }
+    },
+    methods: {
+        async uploadData() {
+            const {error} = await supabase
+            .from('journal_entries')
+            .insert({title: this.title, entry: this.thoughts, author_name: this.author})
+            if (error === null) {
+                console.log("success")
+            }
         }
     }
 }
