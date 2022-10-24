@@ -42,7 +42,7 @@ form {
 .inputs {
     width: 100%;
     border: none;
-    border-bottom: 3px solid var(--vt-c-divider-dark-1);
+    border-bottom: 2px solid var(--vt-c-divider-dark-1);
     background-color: transparent;
     font-size: 1.3rem;
     color: var(--vtc-c-white-mute);
@@ -53,6 +53,7 @@ form {
 textarea {
     margin-top: 1rem;
     background-color: transparent;
+    border: 2px solid var(--vt-c-divider-dark-1);
     border-radius: 20px;
     padding: 1rem;
     color: var(--vtc-c-white-mute);
