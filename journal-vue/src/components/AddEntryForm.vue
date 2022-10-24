@@ -30,9 +30,11 @@ export default {
         async uploadData() {
             const {error} = await supabase
             .from('journal_entries')
-            .insert({title: this.title, entry: this.thoughts, author_name: this.author})
+            .insert({title: this.title, entry: this.thoughts, username: this.author})
             if (error === null) {
                 alert("Data uploaded successfully")
+            } else {
+                alert(error)
             }
         }
     }
