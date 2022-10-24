@@ -11,10 +11,6 @@
                 <button type="submit">Upload</button>
             </div>
         </form>
-
-        <h2>{{title}}</h2>
-        <h2>{{author}}</h2>
-        <h2>{{thoughts}}</h2>
     </div>
 
 </template>
@@ -36,7 +32,7 @@ export default {
             .from('journal_entries')
             .insert({title: this.title, entry: this.thoughts, author_name: this.author})
             if (error === null) {
-                console.log("success")
+                alert("Data uploaded successfully")
             }
         }
     }
@@ -90,5 +86,8 @@ button {
     font-size: 1.3rem;
     font-weight: 550;
     background-color: hsla(160, 100%, 37%, 1);
+}
+h1 {
+    text-align: center;
 }
 </style>
