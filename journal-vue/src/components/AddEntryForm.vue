@@ -4,7 +4,7 @@
             <h1>What's on your mind</h1>
 
             <input type="text" placeholder="Title" class="inputs" v-model="title" required>
-            <input type="text" placeholder="@madeupname" class="inputs" v-model="author" required>
+            <input type="text" placeholder="madeupname" class="inputs" v-model="author" required>
             <textarea rows="5" placeholder="Your thoughts" v-model="thoughts" required></textarea>
 
             <div class="button-container">
