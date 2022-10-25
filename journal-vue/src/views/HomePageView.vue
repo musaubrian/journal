@@ -12,16 +12,22 @@
                 </div>
             </div>
         </div>
+        <FooterVue />
     </div>
 </template>
 
 <script>
 import { supabase } from "../supabase";
+import FooterVue from "../components/Footer.vue";
 export default {
-   data() {
-    return {
-        entries: [],
-        err: []
+    name: "HomePageView",
+    components: {
+        FooterVue
+    },
+    data() {
+        return {
+            entries: [],
+            err: []
     }
    },
     methods: {
