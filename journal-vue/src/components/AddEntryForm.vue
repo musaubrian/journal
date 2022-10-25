@@ -56,18 +56,21 @@ form {
 .inputs {
     width: 100%;
     border: none;
-    border-bottom: 2px solid var(--vt-c-divider-dark-1);
+    border-bottom: 2.5px solid var(--vt-c-divider-dark-1);
     background-color: transparent;
     font-size: 1.3rem;
     color: var(--vtc-c-white-mute);
-    padding: 0.5rem;
+    padding: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+.inputs:focus {
+    border-radius: 20px;
 }
 textarea {
     margin-top: 1rem;
     background-color: transparent;
-    border: 2px solid var(--vt-c-divider-dark-1);
+    border: 2.5px solid var(--vt-c-divider-dark-1);
     border-radius: 20px;
     padding: 1rem;
     color: var(--vtc-c-white-mute);
