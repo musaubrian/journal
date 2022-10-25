@@ -65,6 +65,7 @@ form {
     margin-bottom: 1rem;
 }
 .inputs:focus {
+    border: none;
     border-radius: 20px;
 }
 textarea {
