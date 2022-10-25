@@ -19,9 +19,6 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: var(--vt-c-white-mute);
 }
-.footer-links {
-    color: var(--vt-c-white-mute);
-}
+
 </style>
