@@ -10,7 +10,6 @@
 
 <script>
 import { supabase } from '../supabase';
-import router from '../router';
 
 export default {
     methods: {
@@ -20,7 +19,7 @@ export default {
             .signInWithOAuth({
                 provider: 'google',
                 options: {
-                    redirectTo: 'http://openjournal.netlify.app'
+                    redirectTo: 'http://openjournal.netlify.app/thoughts'
                 }
             })
 
