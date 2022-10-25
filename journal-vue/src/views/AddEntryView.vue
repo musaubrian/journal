@@ -1,8 +1,10 @@
 <script setup>
     import AddEntryFormVue from '../components/AddEntryForm.vue';
+    import NavBarVue from '../components/NavBar.vue';
 </script>
 
 <template>
+    <NavBarVue/>
     <div class="entryview">
         <AddEntryFormVue />
     </div>

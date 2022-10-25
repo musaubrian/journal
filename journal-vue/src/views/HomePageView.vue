@@ -1,4 +1,5 @@
 <template>
+    <NavBarVue />
     <div class="homepage">
         <div 
         class="content-container" 
@@ -19,10 +20,12 @@
 <script>
 import { supabase } from "../supabase";
 import FooterVue from "../components/Footer.vue";
+import NavBarVue from "../components/NavBar.vue";
 export default {
     name: "HomePageView",
     components: {
-        FooterVue
+        FooterVue,
+        NavBarVue
     },
     data() {
         return {

@@ -91,7 +91,7 @@ button {
     border: none;
     font-size: 1.3rem;
     font-weight: 550;
-    background-color: hsla(160, 100%, 37%, 1);
+    background-color: #00bd7e;
 }
 h1 {
     text-align: center;

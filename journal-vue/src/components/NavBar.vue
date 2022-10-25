@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { supabase } from '../supabase';
 </script>
 
 <template>
@@ -7,16 +8,47 @@ import { RouterLink } from 'vue-router';
         <div>
             <ul class="links">
                 <li>
-                    <RouterLink to="/">Home</RouterLink>
+                    <RouterLink to="/thoughts">Home</RouterLink>
                 </li>
                 <li>
                     <RouterLink to="/entry">Add</RouterLink>
+                </li>
+                <li class="signout" @click="handleSignOut">
+                    signout
                 </li>
             </ul>
         </div>
 
     </nav>
 </template>
+
+<script>
+
+import { supabase } from '../supabase';
+import router from '../router';
+export default {
+    data() {
+        return {
+            userLoggedIn: true
+        }
+    },
+    methods: {
+        async handleSignOut() {
+            const {err} = await supabase
+            .auth.signOut()
+            .then(
+                this.userLoggedIn = false
+            )
+            if (this.userLoggedIn === false) {
+                router.push("/")
+            }
+            if (err) {
+                alert("Error: ", err)
+            }
+        }
+    }
+}
+</script>
 
 <style scoped>
 nav {
@@ -46,9 +78,12 @@ div {
     justify-content: space-evenly;
     align-items: center;
 }
-li {
+li,
+.signout {
     font-size: 1.4rem;
     padding-left: 1rem;
+    cursor: pointer;
+    color: #00bd7e;
 }
 a:hover {
     transition: 650ms;
