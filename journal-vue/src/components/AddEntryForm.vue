@@ -51,7 +51,7 @@ export default {
     align-items: center;
 }
 form {
-    width: 90%;
+    width: 50%;
 }
 .inputs {
     width: 100%;
@@ -91,5 +91,11 @@ button {
 }
 h1 {
     text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    form {
+        width: 80%;
+    }
 }
 </style>

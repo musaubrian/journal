@@ -1,6 +1,5 @@
 <template>
     <div class="homepage">
-        <!-- <button @click="fetchEntries">get data</button> -->
         <div 
         class="content-container" 
         v-for="entry in entries"
@@ -33,7 +32,6 @@ export default {
             
             if (data) {
                 this.entries = data
-                console.log(data)
             } else if (error) {
                 this.err = error
             }
@@ -47,6 +45,12 @@ export default {
 <style scoped>
 .homepage {
     margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-container {
+    width: 70%;
 }
 .entry-card {
     display: flex;
@@ -69,11 +73,19 @@ p {
 }
 .user {
     display: flex;
-    width: 90%;
+    width: 50%;
     justify-content: flex-end;
 }
 span {
     font-size: 1rem;
+}
+@media screen and (max-width: 650px) {
+    .content-container {
+        width: 90%;
+    }
+    .user {
+        width: 80%;
+    }
 }
 
 </style>
