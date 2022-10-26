@@ -43,6 +43,7 @@ export default {
                 this.entries = data
             } else if (error) {
                 this.err = error
+                alert("Error: ", this.err)
             }
         }
     },
@@ -57,6 +58,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .content-container {
     width: 70%;

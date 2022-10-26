@@ -14,7 +14,7 @@ import { supabase } from '../supabase';
                     <RouterLink to="/entry">Add</RouterLink>
                 </li>
                 <li class="signout" @click="handleSignOut">
-                    signout
+                    <i class="material-icons">logout</i>
                 </li>
             </ul>
         </div>
@@ -78,12 +78,16 @@ div {
     justify-content: space-evenly;
     align-items: center;
 }
+
 li,
 .signout {
     font-size: 1.4rem;
     padding-left: 1rem;
     cursor: pointer;
     color: #00bd7e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 a:hover {
     transition: 650ms;

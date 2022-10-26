@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import router from '../router';
 import { supabase } from '../supabase';
 
 export default {
@@ -33,6 +34,7 @@ export default {
             .insert({title: this.title, entry: this.thoughts, username: this.author})
             if (error === null) {
                 alert("Data uploaded successfully")
+                router.push("/thoughts")
             } else {
                 alert(error)
             }
