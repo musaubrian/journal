@@ -63,7 +63,7 @@ nav {
     backdrop-filter: blur(1);
 }
 div {
-    width: 80%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,5 +93,10 @@ a:hover {
     transition: 650ms;
     text-decoration: overline;
     font-size: 1.5rem;
+}
+@media screen and (max-width: 950px) {
+    div {
+        width: 70%;
+    }
 }
 </style>
