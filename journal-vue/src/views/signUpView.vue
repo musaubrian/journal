@@ -1,14 +1,14 @@
 <template>
     <div class="sign-in">
         <div class="form-container">
-            <form @submit.prevent="signIn()">
+            <form @submit.prevent="uploadData()">
                 <h1>OpenJournal</h1>
-                <h1>Sign In</h1>
+                <h1>Sign Up</h1>
 
                 <input type="text" placeholder="email" class="inputs" v-model="email" required>
                 <input type="text" placeholder="password" class="inputs" v-model="password" required>
 
-                <p>Already have an account <RouterLink to="/signup">sign up</RouterLink></p>
+                <p>Don't have an account <RouterLink to="/signin">sign up</RouterLink></p>
                 <div class="button-container">
                     <button type="submit">Upload</button>
                 </div>                
@@ -18,24 +18,7 @@
 </template>
 
 <script>
-import { supabase } from '../supabase';
 
-export default {
-    data () {
-        return {
-            email: "",
-            password: ""
-        }
-    },
-    methods: {
-        async signIn(){
-            await supabase.auth.signInWithPassword({
-                email: this.email,
-                password: this.password
-            })
-        }
-    }
-}
 
 </script>
 
