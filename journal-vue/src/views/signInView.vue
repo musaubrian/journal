@@ -45,9 +45,7 @@ export default {
             }
             if (error){
                 alert("Error encountered", error)
-                setTimeout(() => {
-                    router.push("/signin")
-                }, 1000);
+                router.push("/signin")
             }
         }
     }
