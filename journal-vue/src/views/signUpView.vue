@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import router from '../router';
 import { supabase } from '../supabase';
 
 export default {
@@ -40,7 +41,8 @@ export default {
                 password: this.password
             })
             if (error){
-                alert(error)
+                alert("Error signing up:", error)
+                router.push("/signup")
             } else {
                 alert("Check your email")
             }

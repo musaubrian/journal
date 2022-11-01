@@ -43,10 +43,13 @@ export default {
             if (data){
                 setTimeout(() => {
                     router.push("/thoughts")
-                }, 2000);
+                }, 1000);
             }
             if (error){
                 alert("Error encountered", error)
+                setTimeout(() => {
+                    router.push("/signin")
+                }, 1000);
             }
         }
     }
