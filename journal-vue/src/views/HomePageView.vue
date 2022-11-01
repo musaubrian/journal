@@ -8,7 +8,7 @@
             <div class="entry-card">
                 <h2>{{ entry.title}}</h2>
                 <p>{{entry.entry}}</p>
-                <div class="user">
+                <div class="tags">
                     <span>#{{entry.tag}}</span>
                 </div>
             </div>
@@ -69,7 +69,7 @@ export default {
     margin-top: 2rem;
     width: 70%;
     border-radius: 20px;
-    box-shadow: 2px 3px 9px #fff;
+    box-shadow: 4px 5px 20px var(--vt-c-divider-dark-1);
 }
 .entry-card {
     display: flex;
@@ -90,9 +90,9 @@ p {
     padding: 0.5rem;
     text-align: justify;
 }
-.user {
+.tags {
     display: flex;
-    width: 50%;
+    width: 70%;
     justify-content: flex-end;
 }
 span {
@@ -102,7 +102,7 @@ span {
     .content-container {
         width: 90%;
     }
-    .user {
+    .tags {
         width: 80%;
     }
 }
