@@ -4,7 +4,7 @@
             <h1>What's on your mind</h1>
 
             <input type="text" placeholder="Title" class="inputs" v-model="title" required>
-            <input type="text" placeholder="madeupname" class="inputs" v-model="author" required>
+            <input type="text" placeholder="tag" class="inputs" v-model="tags" required>
             <textarea rows="5" placeholder="Your thoughts" v-model="thoughts" required></textarea>
 
             <div class="button-container">
@@ -23,15 +23,15 @@ export default {
     data () {
         return {
             title: '',
-            author: '',
+            tags: '',
             thoughts: ''
         }
     },
     methods: {
         async uploadData() {
             const {error} = await supabase
-            .from('journal_entries')
-            .insert({title: this.title, entry: this.thoughts, username: this.author})
+            .from('martha')
+            .insert({title: this.title, entry: this.thoughts, tag: this.tags})
             if (error === null) {
                 alert("Data uploaded successfully")
                 router.push("/thoughts")
