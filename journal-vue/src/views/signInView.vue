@@ -41,7 +41,7 @@ export default {
                 password: this.password
             })
             if (data){
-                router.push("/signin")
+                router.push("/thoughts")
             }
             if (error){
                 alert("Error encountered", error)
