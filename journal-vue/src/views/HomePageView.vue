@@ -2,14 +2,14 @@
     <NavBarVue />
     <div class="homepage">
         <div 
-        class="content-container" 
+        class="content-container"
         v-for="entry in entries"
         :key="entries.id">
             <div class="entry-card">
                 <h2>{{ entry.title}}</h2>
                 <p>{{entry.entry}}</p>
                 <div class="user">
-                    <span>@{{entry.username}}</span>
+                    <span>#{{entry.tag}}</span>
                 </div>
             </div>
         </div>
@@ -34,9 +34,14 @@ export default {
     }
    },
     methods: {
+        checkVal(){
+            if(this.entries == []){
+
+            }
+        },
         async fetchEntries() {
             const {data, error} = await supabase
-            .from('journal_entries')
+            .from('martha')
             .select()
             
             if (data) {
@@ -61,7 +66,10 @@ export default {
     flex-direction: column;
 }
 .content-container {
+    margin-top: 2rem;
     width: 70%;
+    border-radius: 20px;
+    box-shadow: 2px 3px 9px #fff;
 }
 .entry-card {
     display: flex;
