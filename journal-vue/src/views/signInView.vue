@@ -31,7 +31,7 @@ export default {
     methods: {
         validatePassword(){
             if (this.password < 6) {
-                alert("PAssword should be longer than 6 characters")
+                alert("Password should be longer than 6 characters")
             }
         },
         async signIn(){
