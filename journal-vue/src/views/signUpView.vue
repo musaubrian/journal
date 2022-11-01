@@ -1,16 +1,16 @@
 <template>
     <div class="sign-in">
         <div class="form-container">
-            <form @submit.prevent="uploadData()">
+            <form @submit.prevent="signUp()">
                 <h1>OpenJournal</h1>
                 <h1>Sign Up</h1>
 
                 <input type="text" placeholder="email" class="inputs" v-model="email" required>
-                <input type="text" placeholder="password" class="inputs" v-model="password" required>
+                <input type="password" placeholder="password" class="inputs" v-model="password" required>
 
-                <p>Don't have an account <RouterLink to="/signin">sign up</RouterLink></p>
+                <p>Don't have an account <RouterLink to="/signin">sign in</RouterLink></p>
                 <div class="button-container">
-                    <button type="submit">Upload</button>
+                    <button type="submit">Sign up</button>
                 </div>                
             </form>
         </div>
@@ -18,6 +18,35 @@
 </template>
 
 <script>
+import { supabase } from '../supabase';
+
+export default {
+    data () {
+        return {
+            email: "",
+            password: ""
+        }
+    },
+    methods: {
+        validatePassword () {
+            if(this.password < 6){
+                alert("password should be longer than 6 characters")
+            }
+        },
+        async signUp() {
+            this.validatePassword()
+            const {error} = await supabase.auth.signUp({
+                email: this.email,
+                password: this.password
+            })
+            if (error){
+                alert(error)
+            } else {
+                alert("Check your email")
+            }
+        }
+    }
+}
 
 
 </script>
