@@ -21,7 +21,7 @@
         justify-content: flex-end;
         position: fixed;
         bottom: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         width: 90%;
     }
     .button {
@@ -32,10 +32,11 @@
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background-color: rgba(0, 189, 126, 0.795);
+        background-color: rgba(0, 189, 126, 0.925);
     }
     .material-icons {
         color: var(--vt-c-text-dark-1);
+        font-size: 1.5rem;
     }
 }
 </style>

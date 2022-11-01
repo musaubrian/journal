@@ -19,6 +19,8 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 1rem;
+    background-color: var(--vt-c-divider-light-2);
 }
 
 </style>
