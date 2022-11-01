@@ -2,10 +2,9 @@
     <div class="signin-container">
         <h1>OpenJournal</h1>
         <h2>Don't be afraid to share your thoughts</h2>
-        <RouterLink to="/thoughts" class="google-signin">
+        <RouterLink to="/signin" class="google-signin">
             <button>
-                <!-- <img src="../assets/google-svgrepo-com.svg" alt="google logo"> -->
-                <i class="material-icons">keyboard_double_arrow_right</i>
+                sign in
             </button>
         </RouterLink>
     </div>
@@ -77,7 +76,7 @@ export default {
 .signin-container h1 {
     font-size: 2.5rem;
 }
-.material-icons {
+.redirec {
     font-size: 1.7rem;
 }
 
