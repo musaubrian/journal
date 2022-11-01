@@ -13,6 +13,11 @@
                 </div>
             </div>
         </div>
+        <button class="add">
+            <span class="material-symbols-outlined">
+                add
+            </span>
+        </button>
         <FooterVue />
     </div>
 </template>
@@ -97,6 +102,9 @@ p {
 }
 span {
     font-size: 1rem;
+}
+.add {
+    display: none;
 }
 @media screen and (max-width: 650px) {
     .content-container {
