@@ -60,7 +60,7 @@ form {
     border: none;
     border-bottom: 2px solid var(--vt-c-divider-dark-1);
     background-color: transparent;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--vtc-c-white-mute);
     padding: 1rem;
     margin-top: 1rem;
@@ -101,7 +101,7 @@ h1 {
 
 @media screen and (max-width: 900px) {
     form {
-        width: 80%;
+        width: 90%;
     }
 }
 </style>
