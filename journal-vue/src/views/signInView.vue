@@ -8,7 +8,7 @@
                 <input type="text" placeholder="email" class="inputs" v-model="email" required>
                 <input type="password" placeholder="password" class="inputs" v-model="password" required>
 
-                <p>Already have an account <RouterLink to="/signup">sign up</RouterLink></p>
+                <p>Don't have an account <RouterLink to="/signup">sign up</RouterLink></p>
                 <div class="button-container">
                     <button type="submit">Sign in</button>
                 </div>                
