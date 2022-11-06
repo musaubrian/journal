@@ -29,14 +29,14 @@ export default {
     },
     methods: {
         async uploadData() {
-            const {error} = await supabase
-            .from('martha')
-            .insert({title: this.title, entry: this.thoughts, tag: this.tags})
+            const { error } = await supabase
+            .from('journal_entries')
+            .insert({title: this.title, tag: this.tags, entry: this.thoughts})
             if (error === null) {
                 alert("Data uploaded successfully")
                 router.push("/thoughts")
             } else {
-                alert(error)
+                alert("Couldn't upload data")
             }
         }
     }

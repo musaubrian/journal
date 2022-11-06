@@ -44,7 +44,7 @@ export default {
         },
         async fetchEntries() {
             const {data, error} = await supabase
-            .from('martha')
+            .from('journal_entries')
             .select()
             
             if (data) {
