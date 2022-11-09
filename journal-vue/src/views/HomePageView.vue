@@ -6,8 +6,8 @@
                 <h2>{{ entry.title }}</h2>
                 <p>{{ entry.entry }}</p>
                 <div class="tags">
-                    <i class="material-icons" @click="deleteRecord(entry.id)">delete</i>
                     <span>#{{ entry.tag }}</span>
+                    <i class="material-icons" @click="deleteRecord(entry.id)">delete</i>
                 </div>
             </div>
         </div>
@@ -105,9 +105,9 @@ p {
 }
 
 .material-icons {
-    padding-right: 1rem;
+    padding-left: 1.5rem;
     cursor: pointer;
-    color: red;
+    color: #f01616;
 }
 
 .tags {
