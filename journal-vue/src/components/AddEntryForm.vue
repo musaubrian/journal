@@ -20,7 +20,7 @@ import router from '../router';
 import { supabase } from '../supabase';
 
 export default {
-    data () {
+    data() {
         return {
             title: '',
             tags: '',
@@ -30,8 +30,8 @@ export default {
     methods: {
         async uploadData() {
             const { error } = await supabase
-            .from('journal_entries')
-            .insert({title: this.title, tag: this.tags, entry: this.thoughts})
+                .from('journal_entries')
+                .insert({ title: this.title, tag: this.tags, entry: this.thoughts })
             if (error === null) {
                 alert("Data uploaded successfully")
                 router.push("/thoughts")
@@ -52,9 +52,11 @@ export default {
     justify-content: center;
     align-items: center;
 }
+
 form {
     width: 50%;
 }
+
 .inputs {
     width: 100%;
     border: none;
@@ -66,10 +68,12 @@ form {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
 .inputs:focus {
     border: none;
     border-radius: 20px;
 }
+
 textarea {
     margin-top: 1rem;
     background-color: transparent;
@@ -80,12 +84,14 @@ textarea {
     font-size: 1.2rem;
     width: 100%;
 }
+
 .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
 }
+
 button {
     width: 50%;
     border-radius: 20px;
@@ -95,6 +101,7 @@ button {
     font-weight: 550;
     background-color: #00bd7e;
 }
+
 h1 {
     text-align: center;
 }
