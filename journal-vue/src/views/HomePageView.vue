@@ -6,7 +6,7 @@
                 <h2>{{ entry.title }}</h2>
                 <p>{{ entry.entry }}</p>
                 <div class="tags">
-                    <i class="material-icons" @click="deleteRecord">delete</i>
+                    <i class="material-icons" @click="deleteRecord(entry.id)">delete</i>
                     <span>#{{ entry.tag }}</span>
                 </div>
             </div>
@@ -31,27 +31,11 @@ export default {
     data() {
         return {
             entries: [],
-            err: []
+            err: [],
+            to_delete: []
         }
     },
     methods: {
-        async deleteRecord() {
-            const { data, error } = await supabase
-                .from("journal_entries")
-                .delete()
-                .eq("tag", this.entries.tag)
-            // console.log(data)
-            if (data) {
-                alert("Delete record sucessfully")
-            } else if (error) {
-                alert("couldn't delete record")
-            }
-        },
-        checkVal() {
-            if (this.entries == []) {
-
-            }
-        },
         async fetchEntries() {
             const { data, error } = await supabase
                 .from('journal_entries')
@@ -63,7 +47,18 @@ export default {
                 this.err = error
                 alert("Error: ", this.err)
             }
-        }
+        },
+        async deleteRecord(id) {
+            const { error } = await supabase
+                .from("journal_entries")
+                .delete()
+                .eq('id', id)
+            console.log(this.entries)
+            if (error) {
+                alert("couldn't delete record")
+            }
+            window.location.reload()
+        },
     },
     mounted: function () {
         this.fetchEntries()
@@ -72,7 +67,8 @@ export default {
 </script>
 <style scoped>
 .homepage {
-    margin-top: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +76,7 @@ export default {
 }
 
 .content-container {
-    margin-top: 2rem;
+    margin-bottom: 3rem;
     width: 70%;
     border-radius: 20px;
     box-shadow: 4px 5px 20px var(--vt-c-divider-dark-1);
@@ -110,6 +106,8 @@ p {
 
 .material-icons {
     padding-right: 1rem;
+    cursor: pointer;
+    color: red;
 }
 
 .tags {
