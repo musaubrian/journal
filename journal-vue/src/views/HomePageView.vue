@@ -32,7 +32,6 @@ export default {
         return {
             entries: [],
             err: [],
-            to_delete: []
         }
     },
     methods: {
@@ -57,7 +56,7 @@ export default {
             if (error) {
                 alert("couldn't delete record")
             }
-            window.location.reload()
+            this.fetchEntries()
         },
     },
     mounted: function () {
@@ -95,12 +94,13 @@ h2 {
     font-size: 1.6rem;
     text-decoration: underline;
     text-transform: capitalize;
+    text-align: center;
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    padding: 0.5rem;
+    padding: 1rem;
     text-align: justify;
 }
 
@@ -136,8 +136,12 @@ span {
 }
 
 @media screen and (max-width: 650px) {
+    .homepage {
+        padding: 1rem;
+    }
+
     .content-container {
-        width: 90%;
+        width: 100%;
     }
 
     .tags {
@@ -146,6 +150,10 @@ span {
 
     .add {
         width: 50%;
+    }
+
+    p {
+        font-size: 1rem;
     }
 }
 </style>
