@@ -7,15 +7,15 @@ export const journalRouter = createTRPCRouter({
     .input(
       z.object({
         title: z.string(),
-        content: z.string(),
         tag: z.string(),
+        content: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
       const entries = await ctx.prisma.entry.create({
         data: {
           id: nanoid(),
-          userId: ctx.currentUser.id,
+          userId: ctx.userID,
           title: input.title,
           content: input.content,
           tag: input.tag,
@@ -26,7 +26,7 @@ export const journalRouter = createTRPCRouter({
     }),
   getUsersEntries: privateProcedure.query(({ ctx }) => {
     return ctx.prisma.entry.findMany({
-      where: { userId: ctx.currentUser.id },
+      where: { userId: ctx.userID },
     });
   }),
 });
