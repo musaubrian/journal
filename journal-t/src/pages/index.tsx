@@ -1,5 +1,5 @@
 import { type NextPage } from "next";
-import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Head from "next/head";
 import NavBar from "~/components/NavBar";
 import { api } from "~/utils/api";
@@ -40,7 +40,9 @@ const Home: NextPage = () => {
                 <p className="p-2 text-justify text-lg">{note.content}</p>
                 <div className="inline-flex w-5/6 items-center justify-end text-gray-700">
                   <span>
-                    {note.tag?.includes("#") ? note.tag : `#${note.tag}`}
+                    {note.tag && note.tag.includes("#")
+                      ? note.tag
+                      : `#${note.tag}`}
                   </span>
                   <button onClick={() => deleteEntry(note.id)}>
                     <svg

@@ -1,5 +1,5 @@
 import { SignedIn, useUser } from "@clerk/nextjs";
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
@@ -19,13 +19,13 @@ const NewEntry: NextPage = () => {
     mutate({ title, tag, content });
     setTimeout(() => {
       toast.success("Added entry successfully!");
-      router.push("/");
+      void router.push("/");
     }, 2500);
   };
 
   const { isLoaded } = useUser();
   if (!isLoaded) {
-    router.push("/auth");
+    void router.push("/auth");
   }
 
   return (
