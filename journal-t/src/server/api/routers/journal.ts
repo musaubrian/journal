@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { toast } from "react-hot-toast";
 import { z } from "zod";
 import { createTRPCRouter, privateProcedure } from "~/server/api/trpc";
 
@@ -21,12 +22,12 @@ export const journalRouter = createTRPCRouter({
           tag: input.tag,
         },
       });
-
       return entries;
     }),
   getUsersEntries: privateProcedure.query(({ ctx }) => {
     return ctx.prisma.entry.findMany({
       where: { userId: ctx.userID },
+      orderBy: [{ createdAt: "desc" }],
     });
   }),
 });

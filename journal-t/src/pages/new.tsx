@@ -1,5 +1,6 @@
 import { SignIn, SignedIn, useUser } from "@clerk/nextjs";
 import { NextPage } from "next";
+import { Router, useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import NavBar from "~/components/NavBar";
@@ -14,7 +15,11 @@ const NewEntry: NextPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     mutate({ title, tag, content });
-    toast.success("Uploaded successfully");
+    setTimeout(() => {
+      toast.success("Added entry successfully!");
+      const router = useRouter();
+      router.push("/");
+    }, 2000);
   };
 
   const { isLoaded } = useUser();

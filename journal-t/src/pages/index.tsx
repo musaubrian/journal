@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           />
         </Head>
         <NavBar />
-        <div className="my-5 flex w-full flex-col items-center justify-center md:w-5/6 md:flex-row">
+        <div className="my-5 flex w-full flex-col items-center justify-center">
           {data?.map((note) => (
             <div
               key={note.id}
