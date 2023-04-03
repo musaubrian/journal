@@ -1,22 +1,28 @@
 import { type NextPage } from "next";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
 import Auth from "~/components/SignIn";
+import NavBar from "~/components/NavBar";
+import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
+  const { data } = api.journal.getAll.useQuery();
+
   return (
     <>
       <SignedIn>
         <Head>
           <title>Journal | SignIn</title>
         </Head>
-        <nav className="static top-0 inline-flex w-full items-center justify-end p-3 backdrop-blur-md">
-          <ul className="ml-5 inline-flex w-3/6 items-end justify-end">
-            <li>
-              <UserButton />
-            </li>
-          </ul>
-        </nav>
+        <NavBar />
+        <div>
+          {data?.map((note) => (
+            <div key={note.id}>
+              <h1>{note.title}</h1>
+              <p>{note.content}</p>
+            </div>
+          ))}
+        </div>
       </SignedIn>
       <SignedOut>
         <Auth />
