@@ -1,12 +1,12 @@
 import { type NextPage } from "next";
-import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Head from "next/head";
 import Auth from "~/components/SignIn";
 import NavBar from "~/components/NavBar";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const { data } = api.journal.getAll.useQuery();
+  const { data } = api.journal.getUsersEntries.useQuery();
   return (
     <>
       <SignedIn>
