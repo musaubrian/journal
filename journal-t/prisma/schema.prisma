@@ -10,17 +10,20 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model user {
-    id    String
-    email String @unique
+model User {
+    id      String  @unique
+    email   String
+    entries Entry[]
 }
 
-model journal {
+model Entry {
     id        String   @id
     title     String
     createdAt DateTime @default(now())
     content   String
     tag       String?
+    User      User     @relation(fields: [userId], references: [id])
+    userId    String
 
     @@index([id])
 }

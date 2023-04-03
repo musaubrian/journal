@@ -7,12 +7,15 @@ import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const { data } = api.journal.getAll.useQuery();
-
   return (
     <>
       <SignedIn>
         <Head>
-          <title>Journal | SignIn</title>
+          <title>OpenJournal</title>
+          <meta
+            name="description"
+            content="easily jot down your thoughts securely"
+          />
         </Head>
         <NavBar />
         <div>
