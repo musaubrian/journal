@@ -1,18 +1,7 @@
 import { type NextPage } from "next";
-import {
-  SignIn,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Head from "next/head";
 import Auth from "~/components/SignIn";
-
-const { isLoaded, user } = useUser();
-if (isLoaded) {
-  console.log(user?.firstName, user?.id);
-}
 
 const Home: NextPage = () => {
   return (
@@ -21,7 +10,7 @@ const Home: NextPage = () => {
         <Head>
           <title>Journal | SignIn</title>
         </Head>
-        <nav className="inline-flex w-full items-center justify-end p-3">
+        <nav className="static top-0 inline-flex w-full items-center justify-end p-3 backdrop-blur-md">
           <ul className="ml-5 inline-flex w-3/6 items-end justify-end">
             <li>
               <UserButton />
