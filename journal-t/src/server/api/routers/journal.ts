@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-import { toast } from "react-hot-toast";
 import { z } from "zod";
 import { createTRPCRouter, privateProcedure } from "~/server/api/trpc";
 
@@ -13,7 +12,7 @@ export const journalRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const entries = await ctx.prisma.entry.create({
+      await ctx.prisma.entry.create({
         data: {
           id: nanoid(),
           userId: ctx.userID,
@@ -22,7 +21,6 @@ export const journalRouter = createTRPCRouter({
           tag: input.tag,
         },
       });
-      return entries;
     }),
   getUsersEntries: privateProcedure.query(({ ctx }) => {
     return ctx.prisma.entry.findMany({
@@ -30,4 +28,11 @@ export const journalRouter = createTRPCRouter({
       orderBy: [{ createdAt: "desc" }],
     });
   }),
+  deleteEntry: privateProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.prisma.entry.delete({
+        where: { id: input.id },
+      });
+    }),
 });

@@ -1,8 +1,6 @@
 import { SignIn } from "@clerk/nextjs";
-import { NextPage } from "next";
-import { api } from "~/utils/api";
 
-const Auth: NextPage = () => {
+const Auth = () => {
   return (
     <div className="flex h-screen w-full items-center justify-center">
       <SignIn />

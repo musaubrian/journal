@@ -1,12 +1,14 @@
-import { SignIn, SignedIn, useUser } from "@clerk/nextjs";
+import { SignedIn, useUser } from "@clerk/nextjs";
 import { NextPage } from "next";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import NavBar from "~/components/NavBar";
 import { api } from "~/utils/api";
 
 const NewEntry: NextPage = () => {
+  const router = useRouter();
+
   const { mutate } = api.journal.new.useMutation();
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
@@ -17,14 +19,13 @@ const NewEntry: NextPage = () => {
     mutate({ title, tag, content });
     setTimeout(() => {
       toast.success("Added entry successfully!");
-      const router = useRouter();
       router.push("/");
-    }, 2000);
+    }, 2500);
   };
 
   const { isLoaded } = useUser();
   if (!isLoaded) {
-    return <SignIn />;
+    router.push("/auth");
   }
 
   return (
@@ -45,8 +46,8 @@ const NewEntry: NextPage = () => {
             </label>
             <input
               type="text"
-              className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md md:w-4/6"
-              placeholder="Title goes here"
+              className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
+              placeholder="Well today sucked"
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -56,8 +57,8 @@ const NewEntry: NextPage = () => {
             </label>
             <input
               type="text"
-              className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md md:w-4/6"
-              placeholder="#tag"
+              className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
+              placeholder="#sad"
               required
               value={tag}
               onChange={(e) => setTag(e.target.value)}
@@ -66,7 +67,7 @@ const NewEntry: NextPage = () => {
               Entry:
             </label>
             <textarea
-              className="mb-4 h-52 w-5/6 rounded-lg bg-slate-50 p-4 shadow-md md:h-48 md:w-4/6"
+              className="mb-4 h-52 w-5/6 rounded-lg bg-slate-50 p-4 shadow-md outline-none md:h-48 md:w-4/6"
               placeholder="Dear diary..."
               required
               value={content}
