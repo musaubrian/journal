@@ -51,7 +51,7 @@
     --color-text: var(--vt-c-text-dark-2);
   }
 }
-
+*/
 *,
 *::before,
 *::after {
@@ -66,8 +66,7 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: "Poppins", sans-serif;
+  line-height: 2.6;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

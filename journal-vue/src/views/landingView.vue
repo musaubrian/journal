@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// TODO:: implement Google auth and proper redirect on successfull login
 import { supabase } from '../supabase';
 
 export default {
