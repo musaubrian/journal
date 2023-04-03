@@ -1,6 +1,7 @@
 import { SignIn, SignedIn, useUser } from "@clerk/nextjs";
 import { NextPage } from "next";
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import NavBar from "~/components/NavBar";
 import { api } from "~/utils/api";
 
@@ -13,6 +14,7 @@ const NewEntry: NextPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     mutate({ title, tag, content });
+    toast.success("Uploaded successfully");
   };
 
   const { isLoaded } = useUser();
@@ -40,6 +42,7 @@ const NewEntry: NextPage = () => {
               type="text"
               className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md md:w-4/6"
               placeholder="Title goes here"
+              required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -50,6 +53,7 @@ const NewEntry: NextPage = () => {
               type="text"
               className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md md:w-4/6"
               placeholder="#tag"
+              required
               value={tag}
               onChange={(e) => setTag(e.target.value)}
             />
@@ -59,6 +63,7 @@ const NewEntry: NextPage = () => {
             <textarea
               className="mb-4 h-52 w-5/6 rounded-lg bg-slate-50 p-4 shadow-md md:h-48 md:w-4/6"
               placeholder="Dear diary..."
+              required
               value={content}
               onChange={(e) => setContent(e.target.value)}
             ></textarea>

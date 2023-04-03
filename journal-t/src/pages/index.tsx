@@ -23,13 +23,17 @@ const Home: NextPage = () => {
           {data?.map((note) => (
             <div
               key={note.id}
-              className="w-5/6 rounded-md bg-slate-200 p-3 shadow-sm md:w-3/6"
+              className="my-3 w-5/6 rounded-md bg-slate-200 p-3 shadow-sm md:w-3/6"
             >
               <h1 className="my-2 text-center text-xl font-semibold capitalize underline">
                 {note.title ?? "nothing here yet"}
               </h1>
-              <span>{note.tag}</span>
-              <p>{note.content}</p>
+              <p className="p-2 text-justify text-lg">{note.content}</p>
+              <div className="inline-flex w-5/6 items-center justify-end text-gray-700">
+                <span>
+                  {note.tag?.includes("#") ? note.tag : `#${note.tag}`}
+                </span>
+              </div>
             </div>
           ))}
         </div>
