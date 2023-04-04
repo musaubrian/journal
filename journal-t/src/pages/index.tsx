@@ -39,11 +39,7 @@ const Home: NextPage = () => {
                 </h1>
                 <p className="p-2 text-justify text-lg">{note.content}</p>
                 <div className="inline-flex w-5/6 items-center justify-end text-gray-700">
-                  <span>
-                    {note.tag && note.tag.includes("#")
-                      ? note.tag
-                      : `#${note.tag}`}
-                  </span>
+                  <span>{note.tag && note.tag}</span>
                   <button onClick={() => deleteEntry(note.id)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

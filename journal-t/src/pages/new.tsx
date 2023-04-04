@@ -1,9 +1,10 @@
-import { SignedIn, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import NavBar from "~/components/NavBar";
+import Auth from "~/components/SignIn";
 import { api } from "~/utils/api";
 
 const NewEntry: NextPage = () => {
@@ -22,11 +23,6 @@ const NewEntry: NextPage = () => {
       void router.push("/");
     }, 2500);
   };
-
-  const { isLoaded } = useUser();
-  if (!isLoaded) {
-    void router.push("/auth");
-  }
 
   return (
     <>
@@ -80,6 +76,9 @@ const NewEntry: NextPage = () => {
           </form>
         </div>
       </SignedIn>
+      <SignedOut>
+        <Auth />
+      </SignedOut>
     </>
   );
 };
