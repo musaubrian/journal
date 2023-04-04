@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import NavBar from "~/components/NavBar";
 import Auth from "~/components/SignIn";
 import { api } from "~/utils/api";
 
@@ -14,21 +13,22 @@ const NewEntry: NextPage = () => {
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
   const [content, setContent] = useState("");
+  const [isUploading, setUploading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    setUploading(true);
     e.preventDefault();
     mutate({ title, tag, content });
     setTimeout(() => {
-      toast.success("Added entry successfully!");
+      toast.success("Uploaded entry successfully!!");
       void router.push("/");
-    }, 2500);
+      setUploading(false);
+    }, 1500);
   };
 
   return (
     <>
       <SignedIn>
-        <NavBar />
-
         <div className="flex w-full items-center justify-center px-3 py-10 text-lg">
           <form
             onSubmit={handleSubmit}
@@ -70,9 +70,21 @@ const NewEntry: NextPage = () => {
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
 
-            <button className="mb-5 rounded-md bg-blue-400 p-3 text-xl">
-              Add Entry
-            </button>
+            {!isUploading ? (
+              <button
+                type="submit"
+                className="mb-5 rounded-md bg-blue-400 p-3 text-xl"
+              >
+                Add entry
+              </button>
+            ) : (
+              <button
+                disabled
+                className="mb-5 rounded-md bg-blue-400 p-3 text-xl"
+              >
+                Uploading...
+              </button>
+            )}
           </form>
         </div>
       </SignedIn>
