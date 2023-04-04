@@ -43,7 +43,7 @@ const NewEntry: NextPage = () => {
             <input
               type="text"
               className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
-              placeholder="Well today sucked"
+              placeholder="Well today was interesting"
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -54,7 +54,7 @@ const NewEntry: NextPage = () => {
             <input
               type="text"
               className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
-              placeholder="#sad"
+              placeholder="#noice"
               required
               value={tag}
               onChange={(e) => setTag(e.target.value)}
@@ -70,8 +70,8 @@ const NewEntry: NextPage = () => {
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
 
-            <button className="mb-5 rounded-md bg-blue-400 p-3 text-xl font-semibold">
-              Add entry
+            <button className="mb-5 rounded-md bg-blue-400 p-3 text-xl">
+              Add Entry
             </button>
           </form>
         </div>
