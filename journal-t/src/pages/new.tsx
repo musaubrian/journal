@@ -26,9 +26,9 @@ const NewEntry: NextPage = () => {
 
   return (
     <>
-      <NavBar />
-
       <SignedIn>
+        <NavBar />
+
         <div className="flex w-full items-center justify-center px-3 py-10 text-lg">
           <form
             onSubmit={handleSubmit}
