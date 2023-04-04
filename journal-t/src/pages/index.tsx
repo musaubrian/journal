@@ -1,13 +1,12 @@
 import { type NextPage } from "next";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import Head from "next/head";
-import NavBar from "~/components/NavBar";
 import { api } from "~/utils/api";
 import Link from "next/link";
 import Auth from "~/components/SignIn";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
+import Loading from "~/components/Spinner";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -15,19 +14,27 @@ const Home: NextPage = () => {
   const { mutate } = api.journal.deleteEntry.useMutation();
   const deleteEntry = (postID: string) => {
     mutate({ id: postID });
+    toast.success("Deleted entry successfully!");
     setTimeout(() => {
-      toast.success("Deleted entry successfully!");
       router.reload();
     }, 500);
   };
+  if (!data) {
+    return (
+      <>
+        <SignedIn>
+          <Loading />
+        </SignedIn>
+        <SignedOut>
+          <Auth />
+        </SignedOut>
+      </>
+    );
+  }
+
   return (
     <>
       <SignedIn>
-        <Head>
-          <title>OpenJournal</title>
-          <meta name="description" content="Let your thoughts free" />
-        </Head>
-        <NavBar />
         <div className="mb-20 mt-5 flex w-full flex-col items-center justify-center">
           {data && data.length > 0 ? (
             data?.map((note) => (
@@ -66,9 +73,12 @@ const Home: NextPage = () => {
               <h1 className="my-2 text-center text-xl font-semibold capitalize">
                 Nothing here yet
               </h1>
-              <span className="my-4 inline-flex w-3/6 items-center justify-center rounded-md bg-blue-300 p-3">
-                <Link href="/new">Write sth?</Link>
-              </span>
+              <Link
+                href="/new"
+                className="my-4 inline-flex w-3/6 items-center justify-center rounded-md bg-blue-300 p-3"
+              >
+                Write sth?
+              </Link>
             </div>
           )}
         </div>
