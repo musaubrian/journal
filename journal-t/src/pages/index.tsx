@@ -52,8 +52,8 @@ const Home: NextPage = () => {
                 <div className="my-2 inline-flex w-5/6 items-center justify-end text-gray-700">
                   <span>
                     {note.tag && note.tag.includes("#")
-                      ? note.tag
-                      : `#${note.tag}`}
+                      ? note.tag && note.tag
+                      : note.tag && `#${note.tag}`}
                   </span>
                   <button onClick={() => deleteEntry(note.id)}>
                     <svg
