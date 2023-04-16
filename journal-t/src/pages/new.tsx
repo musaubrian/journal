@@ -32,7 +32,7 @@ const NewEntry: NextPage = () => {
         <div className="flex w-full items-center justify-center px-3 py-10 text-lg">
           <form
             onSubmit={handleSubmit}
-            className="flex h-full w-full flex-col items-center justify-center rounded-md bg-slate-100 sm:h-full md:w-5/6"
+            className="flex h-full w-full flex-col items-center justify-center rounded-md bg-slate-100 px-4 sm:h-full md:w-5/6"
           >
             <h1 className="my-5 text-2xl font-bold text-gray-900">
               Express yourself
@@ -42,7 +42,7 @@ const NewEntry: NextPage = () => {
             </label>
             <input
               type="text"
-              className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
+              className="mb-4 w-full rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
               placeholder="Well today was interesting"
               required
               value={title}
@@ -53,7 +53,7 @@ const NewEntry: NextPage = () => {
             </label>
             <input
               type="text"
-              className="mb-4 w-5/6 rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
+              className="mb-4 w-full rounded-md bg-slate-50 p-4 shadow-md outline-none md:w-4/6"
               placeholder="#noice"
               required
               value={tag}
@@ -63,7 +63,7 @@ const NewEntry: NextPage = () => {
               Entry:
             </label>
             <textarea
-              className="mb-4 h-52 w-5/6 rounded-lg bg-slate-50 p-4 shadow-md outline-none md:h-48 md:w-4/6"
+              className="mb-4 h-52 w-full rounded-lg bg-slate-50 p-4 shadow-md outline-none md:h-48 md:w-4/6"
               placeholder="Dear diary..."
               required
               value={content}

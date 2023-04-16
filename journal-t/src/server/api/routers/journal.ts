@@ -1,6 +1,11 @@
 import { nanoid } from "nanoid";
-import { z } from "zod";
+import { string, z } from "zod";
 import { createTRPCRouter, privateProcedure } from "~/server/api/trpc";
+
+const genID = (): string => {
+  const postID: string = `post_${nanoid()}`;
+  return postID;
+};
 
 export const journalRouter = createTRPCRouter({
   new: privateProcedure
@@ -14,7 +19,7 @@ export const journalRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       await ctx.prisma.entry.create({
         data: {
-          id: nanoid(),
+          id: genID(),
           userId: ctx.userID,
           title: input.title,
           content: input.content,
