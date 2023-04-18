@@ -3,7 +3,7 @@ import { z } from "zod";
 import { createTRPCRouter, privateProcedure } from "~/server/api/trpc";
 
 const removeTag = (toRemove: string): string => {
-  return toRemove.replace("#", "");
+  return toRemove.replace("#", "").toLowerCase();
 };
 
 export const journalRouter = createTRPCRouter({

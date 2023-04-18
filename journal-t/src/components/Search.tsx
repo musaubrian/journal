@@ -30,9 +30,9 @@ const SearchTag = ({ searchValue, onChange }: Isearch) => {
         type="search"
         name=""
         id=""
-        className="w-5/6 bg-inherit p-3 text-lg outline-none"
-        placeholder="Search for a tag"
-        value={searchValue}
+        className="w-5/6 bg-transparent p-3 text-lg outline-none"
+        placeholder="Search using tag"
+        value={searchValue.toLowerCase()}
         onChange={handleChange}
       />
     </div>
