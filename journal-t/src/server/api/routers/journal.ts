@@ -2,6 +2,10 @@ import { nanoid } from "nanoid";
 import { z } from "zod";
 import { createTRPCRouter, privateProcedure } from "~/server/api/trpc";
 
+const removeTag = (toRemove: string): string => {
+  return toRemove.replace("#", "");
+};
+
 export const journalRouter = createTRPCRouter({
   new: privateProcedure
     .input(
@@ -18,7 +22,7 @@ export const journalRouter = createTRPCRouter({
           userId: ctx.userID,
           title: input.title,
           content: input.content,
-          tag: input.tag,
+          tag: removeTag(input.tag),
         },
       });
     }),
