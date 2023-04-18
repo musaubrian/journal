@@ -5,7 +5,7 @@ import Link from "next/link";
 import Auth from "~/components/SignIn";
 import Loading from "~/components/Spinner";
 import { useState } from "react";
-import { Entry } from "@prisma/client";
+import {type Entry } from "@prisma/client";
 import Notes from "~/components/Notes";
 import SearchTag from "~/components/Search";
 

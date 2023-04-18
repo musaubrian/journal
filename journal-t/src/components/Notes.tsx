@@ -1,4 +1,4 @@
-import { Entry } from "@prisma/client";
+import {type Entry } from "@prisma/client";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -40,7 +40,7 @@ const Notes = ({ notes }: INotes) => {
             </span>
             <p className="p-2 text-justify text-lg">{note.content}</p>
             <div className="my-2 inline-flex w-5/6 items-center justify-end text-gray-700">
-              <span>{`#${note.tag}`}</span>
+              <span>{note.tag && `#${note.tag}`}</span>
               <button onClick={() => deleteEntry(note.id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
