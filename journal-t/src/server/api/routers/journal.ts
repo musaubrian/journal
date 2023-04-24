@@ -18,7 +18,7 @@ export const journalRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       await ctx.prisma.entry.create({
         data: {
-          id: `note_${nanoid()}`,
+          id: `note_${nanoid(12)}`,
           userId: ctx.userID,
           title: input.title,
           content: input.content,
